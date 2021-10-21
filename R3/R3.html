@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Solicitud R3</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+                
+                
+    </head>
+    <body>
+        
+        <section class="content" id="content">        
+
+            <div class="row">           
+
+                    <div class = "col">
+                        <div class="image">
+                            <a href="#videostory" class="watch" id="videolink">                    
+                                <img src="thumbnail.jpg">                            
+                                    <!--  <a href="#" class="icon">
+                                        <i class="fa fa-play-circle" aria-hidden="true"> &nbsp;</i>  
+                                        </a>       -->                   
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class = "col">
+
+                        <h2 class="tittleText"><span>W</span>ebGL 3D Graphics Explained in 100 Seconds</h2>
+                        <p>
+                            WebGL makes it possible to render GPU-accelerated 3D graphics on the web.  Learn the basics of 3D theory and rendering pipelines for complex graphics and animations
+                            <p>Visit <a href="https://fireship.io">https://fireship.io</a></p>
+                        </p>
+
+                         <div id="videostory" class="mfp-hide" >
+                            <iframe width="853" height="480" src="https://www.youtube.com/embed/f-9LEoYYvE4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>                    
+            </div>       
+        
+        </section>
+        
+        
+        <script >
+         $('#videolink').magnificPopup({
+              type: 'inline',
+              midClick: true
+          })  
+        </script>
+    </body>
+</html>

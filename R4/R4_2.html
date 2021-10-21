@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Clima citadino. MD-Digital</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style_2.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    </head>
+    <body>
+        <section>
+            <div class="backgroundVideo" id="slideShow">
+                <!-- Los videos que funcionan como slides. El que tenga la clase "active" es el que se mostrará (Por default, el primero lo tiene Berlin)-->
+                <iframe src="https://www.youtube.com/embed/SO9tUbxIIWU?autoplay=1&mute=1&controls=0&amp;start=17" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="active"></iframe>
+                <iframe src="https://www.youtube.com/embed/7S7smPw9EiE?autoplay=1&mute=1&controls=0&amp;start=13" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/OW5YFzycGME?autoplay=1&mute=1&controls=0&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="container">
+                <header id= "navbar">
+                    <a href="#" class="logo">MD-Digital Solutions</a>                  
+                </header>
+                <div class="content">
+                    <div class="descriptionText" id="slideShowText">
+                        <div class="active">
+                            <h2 id="country0"></h2>                                                                    
+                            <!--<img id="weatherImg">-->
+                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, amet porro necessitatibus expedita repellendus error eligendi? Quibusdam ipsa delectus sequi sapiente explicabo similique, voluptates, neque quis itaque perferendis molestias laboriosam? </p>                                                      
+                            <p id="temperature0"> temperatura F°: </p>
+                            <p id="humidity0"> humedad %: </p>
+                            <p id="wind_dir0"> dirección de viento: </p>
+                        </div>
+                        <div>
+                            <h2 id="country1"></h2>                                                                    
+                            <!--<img id="weatherImg">--> 
+                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, amet porro necessitatibus expedita repellendus error eligendi? Quibusdam ipsa delectus sequi sapiente explicabo similique, voluptates, neque quis itaque perferendis molestias laboriosam? </p>                                                      
+                                                           
+                            <p id="temperature1"> temperatura F°: </p>
+                            <p id="humidity1"> humedad %: </p>
+                            <p id="wind_dir1"> dirección viento: </p>
+                        </div>
+                        <div>
+                            <h2 id="country2"></h2>                                                                    
+                                <!--<img id="weatherImg">--> 
+                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, amet porro necessitatibus expedita repellendus error eligendi? Quibusdam ipsa delectus sequi sapiente explicabo similique, voluptates, neque quis itaque perferendis molestias laboriosam? </p>                                                      
+                                                                         
+                            <p id="temperature2"> temperatura F°: </p>
+                            <p id="humidity2"> humedad %: </p>
+                            <p id="wind_dir2"> dirección viento: </p>
+                         </div>
+                    </div>
+                </div>
+                <ul class="controls">
+                    <Li onclick="prevSlide();prevSlideText();"><img src="images/left.png"></Li>
+                    <li onclick="nextSlide();nextSlideText();"><img src="images/right.png"></li>
+                </ul>    
+            </div>
+        </section>       
+        
+        
+        
+        <script>
+            let params = new URLSearchParams({
+            access_key: '9dda21794c206ad4a725dc7d85d7a65f',
+            //query: 'Berlin;',
+            //units: 'f'
+            });
+           
+                        
+            function addToHeader(city, temperature, humidity, wind_dir, i){
+                $('#country'+ i).append(city)
+                /*$('#weatherImg').attr("src", 'weatherImg');*/
+                $('#temperature'+ i).append(temperature)
+                $('#humidity'+ i).append(humidity)
+                $('#wind_dir'+ i).append(wind_dir)
+             }
+
+
+            //Slides de video 
+            const slideShow = document.getElementById('slideShow');
+            const slides = slideShow.getElementsByTagName('iframe');
+
+             var index = 0;
+
+             //Funciones para cambio de "slide"-video.
+             //La función retira la clase del elemento y se le añade al siguiente slide 
+             function nextSlide(){
+                 slides[index].classList.remove('active');
+                 index = (index + 1) % slides.length;
+                 slides[index].classList.add('active');                 
+             }
+
+             function prevSlide(){
+                 slides[index].classList.remove('active');
+                 index = (index - 1) % slides.length;
+                 slides[index].classList.add('active');
+             }
+
+
+
+            //Slides de descripción
+            const slideShowText = document.getElementById('slideShowText');
+            const slidesText = slideShowText.getElementsByTagName('div');
+
+             var indexText = 0;
+
+             //Funciones para cambio de "slide"-video.
+             //La función retira la clase del elemento y se le añade al siguiente slide 
+             function nextSlideText(){                 
+                 slidesText[indexText].classList.remove('active');
+                 indexText = (indexText + 1) % slidesText.length;
+                 slidesText[indexText].classList.add('active');            
+               
+             }
+
+             function prevSlideText(){
+                 slidesText[indexText].classList.remove('active');
+                 indexText = (indexText - 1 + slidesText.length) % slidesText.length;
+                 slidesText[indexText].classList.add('active');                 
+                 
+             }
+             
+            
+            var CityAPI = ["Berlin","New York", "Dallas"];
+            var country =[], temperature=[], humidity=[], wind_dir=[];
+            
+           
+            //La API Weatherstack para usuarios gratuitos no permite hacer bulks get. 
+            for(let i=0; i<CityAPI.length; i++)
+            {
+              fetch('http://api.weatherstack.com/current?access_key=9dda21794c206ad4a725dc7d85d7a65f&query='+CityAPI[i])
+            .then(res => res.json()).then(function (obj) 
+            {                 
+                country[i] = obj.location.name;
+                temperature[i] = obj.current.temperature;
+                humidity[i] = obj.current.humidity;
+                wind_dir[i] = obj.current.wind_dir;             
+
+               
+                addToHeader(country[i], temperature[i], humidity[i], wind_dir[i], i);
+               
+            });  
+
+            }     
+        </script>
+    </body>
+</html>
